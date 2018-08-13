@@ -1,4 +1,4 @@
-Welcome to the Playlist 1
+Play Gym App
 =========================
 
 Version 1 of the Playlist application
