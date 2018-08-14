@@ -1,0 +1,18 @@
+{
+  "trainers": [
+    {
+      "firstName": "1",
+      "lastName": "1",
+      "email": "1.com",
+      "password": "s",
+      "id": "11"
+    },
+    {
+      "firstName": "2",
+      "lastName": "2",
+      "email": "2.com",
+      "password": "s",
+      "id": "22"
+    }
+  ]
+}

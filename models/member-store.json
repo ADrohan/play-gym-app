@@ -12,6 +12,7 @@
       "startingweight": "67",
       "assessment": [
         {
+          "date": "2012-04-23T18:25:43.511Z",
           "id": "3",
           "weight": "123.3",
           "chest": "45.0",
@@ -19,7 +20,7 @@
           "upperarm": "23.3",
           "waist": "32",
           "hips": "40"
-       },
+        },
         {
           "id": "4",
           "weight": "123.3",
@@ -27,9 +28,31 @@
           "thigh": "12.5",
           "upperarm": "23.3",
           "waist": "32",
+          "hips": "45"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "email": "homer@simpson.com",
+      "password": "s",
+      "name": "Homer Simpson",
+      "address": "Springfield",
+      "gender": "Male",
+      "height": "1.7",
+      "startingweight": "101",
+      "assessment": [
+        {
+          "id": "5",
+          "weight": "100",
+          "chest": "30.0",
+          "thigh": "12.5",
+          "upperarm": "20",
+          "waist": "30",
           "hips": "40"
         }
       ]
-    }   
+    }
   ]
 }

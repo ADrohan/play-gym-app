@@ -1,7 +1,8 @@
 {{> menu id="dashboard"}}
 
-{{#each members}}
+{{#each member}}
   <section class="ui segment">
+    {{>analytics}}
     {{>addassessment}}
     {{>assessment-table}}
   </section>

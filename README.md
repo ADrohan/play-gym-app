@@ -1,4 +1,5 @@
-Welcome to Gym App 1
+Welcome to Gym App 
 =========================
 
-Version 1 of the Gym application
+Version 11 of the Gym application
+  
