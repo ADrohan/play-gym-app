@@ -1,0 +1,35 @@
+{
+  "members": [
+    {
+      "id": "1",
+      "userid": "2b6f0989-7b7f-4a38-ad26-aa06b922d751",
+      "email": "marge@simpson.com",
+      "password": "s",
+      "name": "Marge Simpson",
+      "address": "Springfield",
+      "gender": "Female",
+      "height": "1.4",
+      "startingweight": "67",
+      "assessment": [
+        {
+          "id": "3",
+          "weight": "123.3",
+          "chest": "45.0",
+          "thigh": "12.5",
+          "upperarm": "23.3",
+          "waist": "32",
+          "hips": "40"
+       },
+        {
+          "id": "4",
+          "weight": "123.3",
+          "chest": "45.0",
+          "thigh": "12.5",
+          "upperarm": "23.3",
+          "waist": "32",
+          "hips": "40"
+        }
+      ]
+    }   
+  ]
+}
