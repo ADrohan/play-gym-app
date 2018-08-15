@@ -93,54 +93,6 @@ const accounts = {
     
     response.render('settings', {member: memberStore.getMemberByEmail(loggedInUser.email)});
     },
-    
-    //logger.debug('new address: ', request.body.address);
-    // not right logger.debug('requesting new address: ', request.body.address);
-    
-   
-    /*
-    const member = {
-     // id: memberSettings.id,
-      email: request.body.email,
-      name: request.body.name,
-      password: request.body.password,
-      address: request.body.address,
-      address: newAddress,
-      gender: request.body.gender,
-      height: request.body.height,
-      startingweight: request.body.startweight
-    };
-    */
-    
-   
-  
-    // logger.debug('new address entered: ', request.body.address);
-    
-    //logger.debug ('address entered: ', this.member[0].address);
-    //const update = memberStore.memberSettingsToUpdate(memberSettings);
-    //const update = memberStore.memberSettingsToUpdate(memberSettings[0]);
-   
-    //const update = memberStore.memberSettingsToUpdate({member:memberSettings});
- 
-    
-    //const update = memberStore.memberSettingsToUpdate(loggedInUser, member);
-    
-  
-    //memberSettings.email = this.members.email;
-   // memberSettings.name = this.member.name;
-    //memberSettings.password = this.member.password;
-    //memberSettings[0].address = this.member.address;
-    
-    //memberSettings.address = this.member.address;
-    
-   // memberSettings.address = this.member.address;
-    //memberSettings.gender = this.member.gender;
-    //memberSettings.height = this.member.height;
-    //memberSettings.startingweight = this.member.startingweight;
-  //  logger.debug('debugging: uddate', update);
-   // response.redirect('settings', update);
-    
-    
 
 };
 

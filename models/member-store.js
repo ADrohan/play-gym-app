@@ -7,9 +7,6 @@ const accounts = require('../controllers/accounts.js');
 
 //const memberStore = require('./member-store.json').members;
 
-//module.exports = memberStore;
-
-
 const memberStore = {
   
   store: new JsonStore('./models/member-store.json', { members: [] }),
@@ -61,12 +58,6 @@ const memberStore = {
     logger.debug('memberAfterUpdate', memberToUpdate);
     this.store.save();
     
-    //memberSettings.address = this.members.address;
-    
-    //memberSettings.address = member.address;
-  //   const loggedInUser = accounts.getCurrentUser(request);
-  //memberSettings.address = this.member.address;
-  //  memberSettings[0].address = this.member.address;
 },
    
 };
