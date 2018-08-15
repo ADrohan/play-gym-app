@@ -1,7 +1,7 @@
 {
-  "name": "playlist-1",
+  "name": "play-gym-app",
   "version": "0.0.1",
-  "description": "Project at the end of Playlist-1 lab",
+  "description": "A gym app to track your BMI",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
