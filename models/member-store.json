@@ -19,16 +19,21 @@
           "thigh": "12.5",
           "upperarm": "23.3",
           "waist": "32",
-          "hips": "40"
+          "hips": "40",
+          "trend": "True",
+          "comment": "good"
         },
         {
+          "date": "2012-05-23T18:25:43.511Z",
           "id": "4",
           "weight": "123.3",
           "chest": "45.0",
           "thigh": "12.5",
           "upperarm": "23.3",
           "waist": "32",
-          "hips": "45"
+          "hips": "45",
+          "trend": "False",
+          "comment": "Come on!"
         }
       ]
     },
