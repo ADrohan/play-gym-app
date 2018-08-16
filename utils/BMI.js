@@ -1,3 +1,6 @@
+//javascript tutorial ENUM Types - https://www.youtube.com/watch?v=zyEyqvzeWcY
+//https://stackoverflow.com/questions/287903/what-is-the-preferred-syntax-for-defining-enums-in-javascript
+
 const BMI = {
   
     VERY_SEVERELY_UNDERWEIGHT : {

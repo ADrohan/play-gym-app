@@ -7,6 +7,7 @@ dependencies:
   fs-extra: 6.0.1
   lodash: 4.17.10
   lowdb: 1.0.0
+  moment-with-locales-es6: 2.18.1
   uuid: 3.3.2
   winston: 2.4.3
 packages:
@@ -582,6 +583,16 @@ packages:
     dev: false
     resolution:
       integrity: sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
+  /moment-with-locales-es6/2.18.1:
+    dependencies:
+      moment: 2.18.1
+    dev: false
+    resolution:
+      integrity: sha1-0QXw8j+A2Xm5I5mEGJt8+0v9my0=
+  /moment/2.18.1:
+    dev: false
+    resolution:
+      integrity: sha1-w2GT3Tzhwu7SrbfIAtu8d6gbHA8=
   /ms/2.0.0:
     dev: false
     resolution:
@@ -947,5 +958,6 @@ specifiers:
   fs-extra: ^6.0.1
   lodash: ^4.17.10
   lowdb: ^1.0.0
+  moment-with-locales-es6: ^2.18.1
   uuid: ^3.2.1
   winston: ^2.4.2

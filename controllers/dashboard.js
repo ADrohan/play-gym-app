@@ -18,9 +18,12 @@ const dashboard = {
     };
     logger.info('about to render', memberStore.getMember(loggedInUser.id));
     
-    var memberData = memberStore.getMember(loggedInUser.id);
+    // TESTS for Analylics functions
+    const memberData = memberStore.getMember(loggedInUser.id);
     logger.info('height'+ memberData[0].height);
-    logger.info('BMI',Analytics.calculateBMI(memberData[0], 60));
+    logger.info('BMI', Analytics.calculateBMI(memberData[0], 60));
+    logger.info('weight'+ memberData[0].weight);
+    logger.info('ideal weight', Analytics.isIdealBodyWeight(memberData[0], 45));
     
     response.render('dashboard', viewData);
   },

@@ -28,6 +28,6 @@ router.post('/settings/update', accounts.updateSettings);
 router.get('/trainerdashboard', trainerdashboard.index);
 router.get('/trainerassessment/:id', trainerdashboard.trainerAssessment);
 router.get('/trainerdashboard/deletemember/:id', trainerdashboard.deleteMember);
-router.post('/editcomment/ :id', trainerdashboard.editComment);
+router.post('/editcomment/:id', trainerdashboard.editComment);
 
 module.exports = router;
