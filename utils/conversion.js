@@ -1,6 +1,7 @@
 'use strict';
 
 function Conversion() {}
+//stack overflow suggessted format
 
 Conversion.round = function(numberToConvert, precision){
   var p = Math.pow(10, precision);

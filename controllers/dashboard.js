@@ -3,6 +3,7 @@
 const accounts = require ('./accounts.js');
 const logger = require('../utils/logger');
 const memberStore = require('../models/member-store.js');
+const Analytics = require('../utils/analytics');
 const uuid = require('uuid');
 
 
@@ -16,6 +17,11 @@ const dashboard = {
       
     };
     logger.info('about to render', memberStore.getMember(loggedInUser.id));
+    
+    var memberData = memberStore.getMember(loggedInUser.id);
+    logger.info('height'+ memberData[0].height);
+    logger.info('BMI',Analytics.calculateBMI(memberData[0], 60));
+    
     response.render('dashboard', viewData);
   },
   addAssessment(request, response){
