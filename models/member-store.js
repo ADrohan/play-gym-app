@@ -5,31 +5,27 @@ const JsonStore = require('./json-store');
 const logger = require('../utils/logger');
 const accounts = require('../controllers/accounts.js');
 
-//const memberStore = require('./member-store.json').members;
-
 const memberStore = {
   
   store: new JsonStore('./models/member-store.json', { members: [] }),
   collection: 'members',
       
-     //memberCollection: require('./member-store.json').members,
   
   getAllMembers() {
-   //return this.memberCollection;
     return this.store.findAll(this.collection);
   },
   
-  getMember(userid) {
-    return this.store.findBy(this.collection, { userid: userid });
+  getMember(id) {
+    return this.store.findBy(this.collection, { id: id });
   },
-  
-   getThisMember(id) {
-    return this.store.findBy(this.collection, {id: id}); 
+      
+  addMember(member) {
+    this.store.add(this.collection, member);
   },
-     
-  addAssessment(userid,assessment) {
-    logger.debug("userid: " + userid.id);
-    const member = this.getMember(userid.id);
+    
+  addAssessment(id,assessment) {
+    //logger.debug("userid: " + userid.id);
+    const member = this.getMember(id.id);
     logger.debug(member[0]);
     member[0].assessment.push(assessment);
    // member[0].assessment.reverse();
@@ -37,7 +33,7 @@ const memberStore = {
  },
   
   removeMember(id) {
-    const member = this.getThisMember(id);
+    const member = this.getMember(id);
    logger.debug(member);
     this.store.remove(this.collection, member[0]);
     this.store.save();
@@ -46,6 +42,21 @@ const memberStore = {
    getMemberByEmail(email) {
     return this.store.findOneBy(this.collection, { email: email });
   },
+  
+  /*
+  memberSettingsToUpdate(loggedInUser,member) {
+    //logger.debug('memberSettingdsToUpdate:', memberId);
+    
+    //logger.debug('memberSettingsToupdate', memberSettings);
+    logger.debug('member from parameter', member);
+    //const memberId = this.getMember(loggedInUser.id);
+    var memberToUpdate = this.getMember(loggedInUser.id);
+    memberToUpdate = member;
+    logger.debug('memberAfterUpdate', memberToUpdate);
+    this.store.save();
+    
+},
+*/
   
   memberSettingsToUpdate(loggedInUser,member) {
     //logger.debug('memberSettingdsToUpdate:', memberId);

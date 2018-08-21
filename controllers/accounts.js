@@ -1,6 +1,6 @@
 'use strict';
 
-const userstore = require('../models/user-store');
+//const userstore = require('../models/user-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
 const trainerStore = require('../models/trainer-store');
@@ -34,21 +34,40 @@ const accounts = {
     response.render('signup', viewData);
   },
 
+  /*
   register(request, response) {
-    const user = request.body;
-    user.id = uuid();
-    userstore.addUser(user);
-    logger.info(`registering ${user.email}`);
+    const member = request.body;
+    member.id = uuid();
+    memberStore.addMember(member);
+    logger.info(`registering ${member.email}`);
     response.redirect('/');
   },
-
+  */
+  
+  register(request, response) {
+   const member = {
+     id: uuid(),
+     email: request.body.email,
+     password: request.body.password,
+     name: request.body.name,
+     address: request.body.address,
+     gender: request.body.gender,
+     height: request.body.height,
+     startingweight: request.body.startingweight,
+     assessment: [],
+   };
+    memberStore.addMember(member);
+    logger.info(`registering ${member.email}`);
+    response.redirect('/');
+  },
+  
   authenticate(request, response) {
-    const user = userstore.getUserByEmail(request.body.email);
+    const member = memberStore.getMemberByEmail(request.body.email);
     const trainer = trainerStore.getTrainerByEmail(request.body.email);
-    if (user) {
+    if (member) {
       //response.cookie('playlist', user.email);
-      response.cookie('dashboard', user.email);
-      logger.info(`logging in ${user.email}`);
+      response.cookie('dashboard', member.email);
+      logger.info(`logging in ${member.email}`);
       response.redirect('/dashboard');
     }
     else if (trainer) {
@@ -62,8 +81,8 @@ const accounts = {
   },
   
   getCurrentUser(request) {
-    const userEmail = request.cookies.dashboard;
-    return userstore.getUserByEmail(userEmail);
+    const memberEmail = request.cookies.dashboard;
+    return memberStore.getMemberByEmail(memberEmail);
   },
   
   settings(request, response) {

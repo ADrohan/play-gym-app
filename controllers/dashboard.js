@@ -11,6 +11,7 @@ const dashboard = {
   index(request, response) {
     logger.info('dashboard rendering');
     const loggedInUser = accounts.getCurrentUser(request);
+    logger.info('found' , loggedInUser.id);
     const viewData = {
       title: 'Play Gym Dashboard',
       member: memberStore.getMember(loggedInUser.id),
@@ -20,18 +21,19 @@ const dashboard = {
     
     // TESTS for Analylics functions
     const memberData = memberStore.getMember(loggedInUser.id);
-    logger.info('height'+ memberData[0].height);
     logger.info('BMI', Analytics.calculateBMI(memberData[0], 60));
-    logger.info('weight'+ memberData[0].weight);
+    //logger.info('weight'+ memberData[0].weight);
     logger.info('ideal weight', Analytics.isIdealBodyWeight(memberData[0], 45));
     
     response.render('dashboard', viewData);
   },
+  
   addAssessment(request, response){
     const loggedInUser = accounts.getCurrentUser(request);
+    logger.debug(loggedInUser.id);
     const newAssessment = {
       id: uuid(),
-      userid: loggedInUser.id,
+      //userid: loggedInUser.id,
       weight: request.body.weight,
       chest: request.body.chest,
       thigh: request.body.thigh,
@@ -44,6 +46,20 @@ const dashboard = {
     response.redirect('/dashboard');
   },
   
+  /*
+  deleteAssessment(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+    logger.debug(loggedInUser.id);
+    const member = accounts.getCurrentUser(loggedInUser.id);
+    
+    //which assessment am I deleting?
+    const assessmentId = request.params.id;
+    logger.debug(assessmentId);
+     memberStore.removeAssessment(assessmentId);
+    response.redirect('/dashboard');
+  },
+  */
+   
 };
 
 module.exports = dashboard;

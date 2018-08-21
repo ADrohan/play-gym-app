@@ -3,10 +3,24 @@
 
 const conversion = require('../utils/conversion');
 const logger = require('../utils/logger');
+const memberStats = require('../utils/memberStats');
 
 function Analytics() {}
 //stack overflow suggessted format
 //https://stackoverflow.com/questions/35537760/utility-class-for-functions
+
+Analytics.generateMemberStats = function(member) {
+  let stats = new memberStats();
+  const weight = member.startingWeight;
+  const assessments = member.assessment;
+  if(assessments.size() > 0) {
+   const assessment = assessment.get(assessment.size() - 1);
+    weight = assessment.weight; 
+  }
+  stats.bmi = Analytics.calculateBMI(member, weight);
+  return stats;
+  
+}
 
 Analytics.calculateBMI = function(member, weight) {
  if (member.height <= 0)

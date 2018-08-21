@@ -3,7 +3,7 @@
 const logger = require('../utils/logger');
 const trainerStore = require('../models/trainer-store.js');
 const memberStore = require('../models/member-store.js');
-const userStore = require('../models/user-store.js');
+//const userStore = require('../models/user-store.js');
 
 const trainerdashboard = {
   index(request, response) {
@@ -21,7 +21,7 @@ const trainerdashboard = {
   trainerAssessment(request, response) {
     const memberId = request.params.id;
     // logger.debug('finding trainerassessment member' + memberId);
-    const member = memberStore.getThisMember(memberId);
+    const member = memberStore.getMember(memberId);
      // logger.debug(member);
     const memberAssessments = member[0].assessment;
     logger.debug('finding memberassessments');
@@ -30,9 +30,12 @@ const trainerdashboard = {
   },
   
   editComment(request,response) {
-     
+    
     //Identify Assessment to add comment to
     // need Assessment ID
+    
+    const assessmentId = request.params.id;
+    logger.debug(assessmentId.id);
     
     logger.info('rendering edit comment') 
     const comment = request.body;
