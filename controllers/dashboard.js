@@ -5,6 +5,8 @@ const logger = require('../utils/logger');
 const memberStore = require('../models/member-store.js');
 const Analytics = require('../utils/analytics');
 const uuid = require('uuid');
+const moment = require('moment');
+
 
 
 const dashboard = {
@@ -31,6 +33,8 @@ const dashboard = {
   addAssessment(request, response){
     const loggedInUser = accounts.getCurrentUser(request);
     logger.debug(loggedInUser.id);
+    let currentDate = moment().format('ll');
+    logger.info(currentDate);
     const newAssessment = {
       id: uuid(),
       //userid: loggedInUser.id,
@@ -40,12 +44,12 @@ const dashboard = {
       upperarm: request.body.upperarm,
       waist: request.body.waist,
       hips: request.body.hips, 
+      date: moment().format('ll')
     };
    logger.debug('Creating a new assessment', newAssessment);   
    memberStore.addAssessment(loggedInUser,newAssessment);
     response.redirect('/dashboard');
   },
-  
   
   deleteAssessment(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
