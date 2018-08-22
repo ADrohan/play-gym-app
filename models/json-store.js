@@ -2,6 +2,8 @@
 
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync')
+const logger = require('../utils/logger');
+
 
 class JsonStore {
   constructor(file, defaults) {
@@ -14,8 +16,9 @@ class JsonStore {
     this.db.write();
   }
 
+  //https://stackoverflow.com/questions/35329280/how-to-update-a-item-array-using-typicode-lowdb-file-database
   update(collection, obj){
-    //this.db.findOneBy(collection
+    this.db.get(collection).find({id: obj.id}).assign(obj).value()
   }
                       
   add(collection, obj) {

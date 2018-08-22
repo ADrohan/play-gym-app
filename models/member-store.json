@@ -1,31 +1,43 @@
 {
   "members": [
     {
-      "id": "ead2eed4-3feb-4be7-ac41-a81020d1b52a",
-      "email": "2",
-      "password": "2",
-      "name": "2",
-      "address": "2",
+      "id": "689c42fa-149e-4b85-920e-fdec5892d8e5",
+      "email": "1",
+      "password": "s",
+      "name": "1",
+      "address": "123",
       "gender": "Female",
-      "height": "2",
-      "startingweight": "2",
+      "height": "1",
+      "startingweight": "1",
       "assessment": [
         {
-          "id": "7bad6845-2371-42a9-978e-846c74ab6ce1",
-          "weight": "34",
-          "chest": "55",
-          "thigh": "90",
-          "upperarm": "56",
-          "waist": "56",
-          "hips": "40"
-        },
-        {
-          "id": "fdaa6b97-49cc-488a-a209-5dbda7574305",
-          "weight": "34",
-          "chest": "78",
+          "id": "07c1ff4f-0a40-45fa-ae2a-7775163ab109",
+          "weight": "12",
+          "chest": "344",
           "thigh": "3",
           "upperarm": "34",
-          "waist": "32",
+          "waist": "56",
+          "hips": "40"
+        }
+      ]
+    },
+    {
+      "id": "6b22682f-4a26-4c12-8caa-77dcbbde5d16",
+      "email": "3",
+      "password": "3",
+      "name": "3",
+      "address": "3",
+      "gender": "Female",
+      "height": "3",
+      "startingweight": "3",
+      "assessment": [
+        {
+          "id": "176aa36c-7bbd-4eda-8674-fd8ead4ade1b",
+          "weight": "45",
+          "chest": "2",
+          "thigh": "12.5",
+          "upperarm": "56",
+          "waist": "56",
           "hips": "6"
         }
       ]

@@ -37,16 +37,4 @@ const BMI = {
     }  
 };
 
-//function BMIRange(rangeHigh){
- //this.rangeHigh = rangeHigh; 
-//}
-
-/*
-function BmiCategory(bmiValue) {
- if(bmiValue < this.rangeHigh) {
-  return true; 
- }
-  return false;
-}
-*/
 

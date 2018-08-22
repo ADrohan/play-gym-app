@@ -31,11 +31,12 @@ const trainerdashboard = {
   
   editComment(request,response) {
     
+  const member = memberStore.getMemberByUrl(request);
+    logger.debug('member found by url:', member);
+    
     //Identify Assessment to add comment to
     // need Assessment ID
     
-    const assessmentId = request.params.id;
-    logger.debug(assessmentId.id);
     
     logger.info('rendering edit comment') 
     const comment = request.body;

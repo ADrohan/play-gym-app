@@ -20,10 +20,10 @@ const dashboard = {
     logger.info('about to render', memberStore.getMember(loggedInUser.id));
     
     // TESTS for Analylics functions
-    const memberData = memberStore.getMember(loggedInUser.id);
-    logger.info('BMI', Analytics.calculateBMI(memberData[0], 60));
-    //logger.info('weight'+ memberData[0].weight);
-    logger.info('ideal weight', Analytics.isIdealBodyWeight(memberData[0], 45));
+   // const memberData = memberStore.getMember(loggedInUser.id);
+    //logger.info('BMI', Analytics.calculateBMI(memberData[0], 60));
+               //logger.info('weight'+ memberData[0].weight);
+    //logger.info('ideal weight', Analytics.isIdealBodyWeight(memberData[0], 45));
     
     response.render('dashboard', viewData);
   },
@@ -39,26 +39,24 @@ const dashboard = {
       thigh: request.body.thigh,
       upperarm: request.body.upperarm,
       waist: request.body.waist,
-      hips: request.body.hips,     
+      hips: request.body.hips, 
     };
    logger.debug('Creating a new assessment', newAssessment);   
    memberStore.addAssessment(loggedInUser,newAssessment);
     response.redirect('/dashboard');
   },
   
-  /*
+  
   deleteAssessment(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
-    logger.debug(loggedInUser.id);
-    const member = accounts.getCurrentUser(loggedInUser.id);
-    
-    //which assessment am I deleting?
+    //console.log(loggedInUser);
+    logger.info ('logged in user:' , loggedInUser.id);
     const assessmentId = request.params.id;
-    logger.debug(assessmentId);
-     memberStore.removeAssessment(assessmentId);
+    logger.info('getting ready to delete :', assessmentId, 'from', loggedInUser.id);  
+    memberStore.removeAssessment(loggedInUser, assessmentId);
     response.redirect('/dashboard');
   },
-  */
+  
    
 };
 

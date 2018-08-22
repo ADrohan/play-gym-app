@@ -13,7 +13,7 @@ const trainerdashboard = require('./controllers/trainerdashboard.js');
 router.get('/dashboard', dashboard.index);
 router.get('/about', about.index);
 router.post('/dashboard/addassessment', dashboard.addAssessment);
-//router.get('/dashboard/:id/deleteassessment/:id', dashboard.deleteAssessment);
+router.get('/dashboard/deleteassessment/:id', dashboard.deleteAssessment);
 
 // Accounts
 router.get('/', accounts.index);

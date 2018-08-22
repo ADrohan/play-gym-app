@@ -22,15 +22,21 @@ const memberStore = {
   addMember(member) {
     this.store.add(this.collection, member);
   },
-    
+   
   addAssessment(id,assessment) {
-    //logger.debug("userid: " + userid.id);
     const member = this.getMember(id.id);
     logger.debug(member[0]);
     member[0].assessment.push(assessment);
    // member[0].assessment.reverse();
      this.store.save();
  },
+  
+  removeAssessment(loggedInUser, assessmentId) {
+    const assessments = loggedInUser.assessment;
+    logger.debug('removing this assessment', assessmentId);
+    _.remove(assessments, { id: assessmentId});
+    this.store.save();
+  },
   
   removeMember(id) {
     const member = this.getMember(id);
@@ -42,33 +48,10 @@ const memberStore = {
    getMemberByEmail(email) {
     return this.store.findOneBy(this.collection, { email: email });
   },
-  
-  /*
-  memberSettingsToUpdate(loggedInUser,member) {
-    //logger.debug('memberSettingdsToUpdate:', memberId);
     
-    //logger.debug('memberSettingsToupdate', memberSettings);
-    logger.debug('member from parameter', member);
-    //const memberId = this.getMember(loggedInUser.id);
-    var memberToUpdate = this.getMember(loggedInUser.id);
-    memberToUpdate = member;
-    logger.debug('memberAfterUpdate', memberToUpdate);
+   memberSettingsToUpdate(member) {
+    this.store.update(this.collection, member); 
     this.store.save();
-    
-},
-*/
-  
-  memberSettingsToUpdate(loggedInUser,member) {
-    //logger.debug('memberSettingdsToUpdate:', memberId);
-    
-    //logger.debug('memberSettingsToupdate', memberSettings);
-    logger.debug('member from parameter', member);
-    //const memberId = this.getMember(loggedInUser.id);
-    var memberToUpdate = this.getMember(loggedInUser.id);
-    memberToUpdate = member;
-    logger.debug('memberAfterUpdate', memberToUpdate);
-    this.store.save();
-    
 },
    
 };

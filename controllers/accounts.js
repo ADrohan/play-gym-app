@@ -33,17 +33,7 @@ const accounts = {
     };
     response.render('signup', viewData);
   },
-
-  /*
-  register(request, response) {
-    const member = request.body;
-    member.id = uuid();
-    memberStore.addMember(member);
-    logger.info(`registering ${member.email}`);
-    response.redirect('/');
-  },
-  */
-  
+ 
   register(request, response) {
    const member = {
      id: uuid(),
@@ -65,7 +55,6 @@ const accounts = {
     const member = memberStore.getMemberByEmail(request.body.email);
     const trainer = trainerStore.getTrainerByEmail(request.body.email);
     if (member) {
-      //response.cookie('playlist', user.email);
       response.cookie('dashboard', member.email);
       logger.info(`logging in ${member.email}`);
       response.redirect('/dashboard');
@@ -86,30 +75,63 @@ const accounts = {
   },
   
   settings(request, response) {
-    //get logged in user
     const loggedInUser = accounts.getCurrentUser(request);
-    //logger.debug('debugging', loggedInUser);
-    //find member details user.
     const memberSettings = memberStore.getMemberByEmail(loggedInUser.email);
     //logger.debug('debugging', memberSettings);
     response.render('settings', {member:memberSettings});
     }, 
   
+  
+  /*
+
   updateSettings(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
 //    logger.debug('debugging: loggedInUser', loggedInUser);
     const memberSettings = memberStore.getMemberByEmail(loggedInUser.email);
 //    logger.debug('debugging memberSettings', memberSettings);
 //    logger.debug('current address: ', memberSettings.address);
-   
-    //const newAddress = request.body;
-    //logger.debug('new address: ', newAddress);
-    
+     
     const member = request.body;
-    logger.debug('Creating new settings', member);   
     
-    memberStore.memberSettingsToUpdate(loggedInUser, member);
+    const memberToUpdate = { 
+      id: memberSettings.id,
+      name: member['member.name'],
+      gender: member['member.gender'],
+      email: member['member.email'],
+      password: member['member.password'],
+      address: member['member.address'],
+      height: member['member.height'],
+      startingweight: member['member.startingweight']
+    };
+
+    memberStore.memberSettingsToUpdate(memberToUpdate);
+    response.render('settings', {member: memberStore.getMemberByEmail(loggedInUser.email)});
+    },
+    */
+  
+  
+   updateSettings(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+//    logger.debug('debugging: loggedInUser', loggedInUser);
+    const memberSettings = memberStore.getMemberByEmail(loggedInUser.email);
+     
+//    logger.debug('debugging memberSettings', memberSettings);
+//    logger.debug('current address: ', memberSettings.address);
+     
+    const member = request.body;
     
+    const memberToUpdate = { 
+      id: memberSettings.id,
+      name: member.name,
+      gender: member.gender,
+      email: member.email,
+      password: member.password,
+      address: member.address,
+      height: member.height,
+      startingweight: member.startingweight
+    };
+
+    memberStore.memberSettingsToUpdate(memberToUpdate);
     response.render('settings', {member: memberStore.getMemberByEmail(loggedInUser.email)});
     },
 
