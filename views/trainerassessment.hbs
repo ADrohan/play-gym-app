@@ -1,7 +1,12 @@
 {{> trainermenu id = 'trainerdashboard' }}
 
+{{#each member}}
 <section class="ui segment">
-  <div class="column">
+    {{>analytics}}
     {{>assessment-table-comment}}
-  </div>
   </section>
+{{/each}}
+
+
+
+

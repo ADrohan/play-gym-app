@@ -1,4 +1,4 @@
-{{#each memberAssessments}}
+{{#each assessment}}
 <table class="ui celled table ">
   <thead> 
    {{>trainer-assessment-header}}
@@ -10,9 +10,9 @@
 <h4 class="ui header">
   Comments
 </h4>
-<form class="ui form" action="/editcomment/{{assessment.id}}" method="POST">
+<form class="ui form" action="/trainerdashboard/editcomment/{{id}}" method="POST">
   <div class="ui field">
-    <textarea rows="2" name="comment">{{assessment.comment}}</textarea>
+    <textarea rows="2" name="comment">{{comment}}</textarea>
   </div>
   <button class="ui blue submit button">Update</button>
 </form>

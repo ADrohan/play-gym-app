@@ -2,13 +2,11 @@
 
 const express = require('express');
 const router = express.Router();
-
 const dashboard = require('./controllers/dashboard.js');
 const about = require('./controllers/about.js');
 const accounts = require('./controllers/accounts.js');
 const trainerdashboard = require('./controllers/trainerdashboard.js');
 
-//router.get('/', dashboard.index);
 // Home Page
 router.get('/dashboard', dashboard.index);
 router.get('/about', about.index);
@@ -29,6 +27,6 @@ router.post('/settings/update', accounts.updateSettings);
 router.get('/trainerdashboard', trainerdashboard.index);
 router.get('/trainerassessment/:id', trainerdashboard.trainerAssessment);
 router.get('/trainerdashboard/deletemember/:id', trainerdashboard.deleteMember);
-//router.post('/editcomment/:id', trainerdashboard.editComment);
+router.post('/trainerdashboard/editcomment/:id', trainerdashboard.editComment);
 
 module.exports = router;

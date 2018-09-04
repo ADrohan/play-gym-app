@@ -1,40 +1,54 @@
-//javascript tutorial ENUM Types - https://www.youtube.com/watch?v=zyEyqvzeWcY
-//https://stackoverflow.com/questions/287903/what-is-the-preferred-syntax-for-defining-enums-in-javascript
 
-const BMI = {
+const BMICatagories = [
   
-    VERY_SEVERELY_UNDERWEIGHT : {
-        value : 15.0,
-        string : 'Very Severely Underweight'
+    {
+        low:   0.0,
+        high: 15.0,
+        name: 'Very Severely Underweight'
     },
-    SEVERELY_UNDERWEIGHT : {
-        value : 16.0,
-        string : 'Severely Underweight'
+    {
+        low:  15.0,
+        high : 16.0,
+        name: 'Severely Underweight'
     },
-    UNDERWEIGHT : {
-        value : 18.5,
-        string : 'Underweight'
+    {
+        low:  16.0,
+        high : 18.5,
+        name : 'Underweight'
     },
-    NORMAL : {
-        value : 25.0,
-        string : 'Normal'
+    {
+        low:  18.5,
+        high : 25.0,
+        name : 'Normal'
     },
-    OVERWEIGHT : {
-        value : 30.0,
-        string : 'Normal'
+    {
+        low:  25.0,
+        high : 30.0,
+        name : 'Overweight'
     },
-    MODERATELY_OBESE : {
-        value : 35.0,
-        string : 'Moderately Obese'
+    {
+        low:  30.0, 
+        high : 35.0,
+        name : 'Moderately Obese'
     },
-    SEVERELY_OBESE : {
-        value : 40.0,
-        string : 'Severely Obese'
+    {
+        low:  35.0,
+        high : 40.0,
+        name : 'Severely Obese'
     },
-    VERY_SEVERELY_OBESE : {
-        value : 1000.0,
-        string : 'Severely Obese' 
+    {
+        low:  40.0,
+        high : 1000.0,
+        name : 'Severely Obese' 
     }  
-};
+];
 
-
+module.exports = {
+  BMICatagoriesArray: BMICatagories,
+  BmiCategory: function (bmiValue, catagory) {
+    if((bmiValue >= catagory.low) && (bmiValue <= catagory.high)){
+      return true; 
+    }
+    return false;
+  }
+}

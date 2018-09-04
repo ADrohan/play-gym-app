@@ -21,26 +21,12 @@ const memberStore = {
       
   addMember(member) {
     this.store.add(this.collection, member);
-  },
-   
-  addAssessment(id,assessment) {
-    const member = this.getMember(id.id);
-    logger.debug(member[0]);
-    member[0].assessment.push(assessment);
-   // member[0].assessment.reverse();
-     this.store.save();
- },
-  
-  removeAssessment(loggedInUser, assessmentId) {
-    const assessments = loggedInUser.assessment;
-    logger.debug('removing this assessment', assessmentId);
-    _.remove(assessments, { id: assessmentId});
     this.store.save();
   },
   
   removeMember(id) {
     const member = this.getMember(id);
-   logger.debug(member);
+   //logger.debug(member);
     this.store.remove(this.collection, member[0]);
     this.store.save();
   },
@@ -50,10 +36,11 @@ const memberStore = {
   },
     
    memberSettingsToUpdate(member) {
+    // console.log(member);
     this.store.update(this.collection, member); 
     this.store.save();
-},
-   
+  },
+  
 };
 
 module.exports = memberStore;

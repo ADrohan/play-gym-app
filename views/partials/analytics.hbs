@@ -10,7 +10,11 @@
    </div>
   <div class="ui statistic">
     <div class="value">
-    <i class="dashboard icon"></i>
+      {{#if memberStats.isIdealBodyWeight}}
+      <i class="green dashboard icon"></i>
+      {{else}}
+      <i class="red dashboard icon"></i>
+      {{/if}}
     </div>
    <div class="label">
      Ideal Weight Idicator
@@ -18,7 +22,7 @@
    </div> 
   <div class="ui statistic">
     <div class="value">
-      <i class= "heartbeat icon"></i>{{memberStats.bmi}}
+      <i class= "heartbeat icon"></i>{{bmi}}
     </div>
     <div class="label">
       BMI
@@ -29,7 +33,7 @@
       <i class="doctor icon"></i>
     </div>
     <div class="label">
-      TEXT HERE
+      {{bmiCategory}}
     </div>
    </div>  
   </div>

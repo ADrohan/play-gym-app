@@ -1,9 +1,10 @@
 {{> menu id="dashboard"}}
 
-{{#each member}}
   <section class="ui segment">
+    {{#each member}}
     {{>analytics}}
+    {{/each}}
     {{>addassessment}}
     {{>assessment-table}}
   </section>
-{{/each}}
+
